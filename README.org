@@ -4,7 +4,7 @@ This is a project skeleton to use GHCJS on AWS Lambda.
 
 * Basic Dependencies
 
-  - [[https://nodejs.org/en/blog/release/v0.10.36/][Node.js Stable 0.10.x]] - AWS Lambda is curently 0.10.36.  Don't get
+  - [[https://nodejs.org/en/blog/release/v0.10.36/][Node.js Stable 0.10.x]] - AWS Lambda is currently 0.10.36.  Don't get
     aggressive for 4.x and 5.x from Nodesource.  It's not necessary.
     
   - [[http://haskellstack.org][Haskell Stack]] - Install the latest for your OS and then run `stack
@@ -22,12 +22,13 @@ This is a project skeleton to use GHCJS on AWS Lambda.
 
 * Building the GHCJS Project
 
-  GHC's hsc2hs binary is required in your PATH to build this Amazonka
-  on GHCJS (and any time you need to rebuild Amazonka).  The easiest
-  way to do this is to put one from your OS in there.  I had one in my
-  $HOME from running the `stack setup` step above.  Once the
-  dependencies have been built you no longer need the special PATH to
-  build the project.
+  The `hsc2hs` binary is required to be in your PATH in order to build
+  Amazonka on GHCJS (or any time you need to rebuild Amazonka).  The
+  easiest way to do this is to put one from your OS in the PATH.  I
+  tried using an alias to `hsc2hs-ghcjs` (installed by stack as part
+  of GHCJS) but it didn't work. I had a native `hsc2hs` in my $HOME
+  from running the `stack setup` step above.  This works.  Once the
+  dependencies have been built you no longer need the special PATH.
   #+begin_src sh
     export PATH=$HOME/.stack/programs/x86_64-linux/ghc-7.10.3/bin:$PATH
   #+end_src
@@ -37,12 +38,12 @@ This is a project skeleton to use GHCJS on AWS Lambda.
     stack build
   #+end_src
 
-  The "executable" (the node.js files) will be in your .stack-work
+  The "executable" (the js files) will be in your .stack-work
   directory.  The easy way to find them is to run:
   #+begin_src sh
     find . -type d -name lambdazonka.jsexe
   #+end_src
 
-  That's it.  The `all.js` file is all you need with Node.js.  Now you
-  are ready to start using Haskell with AWS Lambda for your automation
-  needs.
+  That's it.  The `all.js` file is self-contained and is all you need
+  with Node.js or for deployment to the cloud.  Now you are ready for
+  AWS Lambda experiments!
