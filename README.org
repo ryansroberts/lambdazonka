@@ -15,9 +15,9 @@ This is a project skeleton to use GHCJS on AWS Lambda.
   GHC's hsc2hs binary is required in your PATH to build this project's
   dependencies (any time you need to rebuild them).  The easiest way
   to do this is to put one from your OS in there.  I had one in my
-  $HOME from running `stack setup` step above I installed stack.  Once
-  the dependencies have been built you no longer need the special PATH
-  to build the project.
+  $HOME from running `stack setup` step above.  Once the dependencies
+  have been built you no longer need the special PATH to build the
+  project.
   #+begin_src sh
     export PATH=$HOME/.stack/programs/x86_64-linux/ghc-7.10.3/bin:$PATH
   #+end_src
