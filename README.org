@@ -25,7 +25,7 @@ This is a project skeleton to use GHCJS on AWS Lambda.
   the dependencies have been built you no longer need the special PATH
   to build the project.
   #+begin_src sh
-    export PATH=$HOME/.stack/programs/x86_64-linux/ghc-7.10.3/bin
+    export PATH=$HOME/.stack/programs/x86_64-linux/ghc-7.10.3/bin:$PATH
   #+end_src
 
   Now lets build the project in the base of the project directory
