@@ -25,9 +25,9 @@ This is a project skeleton to use GHCJS on AWS Lambda.
   GHC's hsc2hs binary is required in your PATH to build this Amazonka
   on GHCJS (and any time you need to rebuild Amazonka).  The easiest
   way to do this is to put one from your OS in there.  I had one in my
-  $HOME from running `stack setup` step above.  Once the dependencies
-  have been built you no longer need the special PATH to build the
-  project.
+  $HOME from running the `stack setup` step above.  Once the
+  dependencies have been built you no longer need the special PATH to
+  build the project.
   #+begin_src sh
     export PATH=$HOME/.stack/programs/x86_64-linux/ghc-7.10.3/bin:$PATH
   #+end_src
@@ -44,5 +44,5 @@ This is a project skeleton to use GHCJS on AWS Lambda.
   #+end_src
 
   That's it.  The `all.js` file is all you need with Node.js.  Now you
-  are ready to start using Haskell with AWS Lambda for your AWS API
-  automation needs.
+  are ready to start using Haskell with AWS Lambda for your automation
+  needs.
