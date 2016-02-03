@@ -22,16 +22,23 @@ This is a project skeleton to use GHCJS on AWS Lambda.
     export PATH=$HOME/.stack/programs/x86_64-linux/ghc-7.10.3/bin:$PATH
   #+end_src
 
-  In this project directory and with stack & node.js in your PATH run
+  In the project directory (and with stack & node.js in your PATH) run
   the following:
   #+begin_src sh
     stack setup
   #+end_src
 
-  Now lets build the project in the base of the project directory
+  Now lets build the project (takes a while)
   #+begin_src sh
     stack build
   #+end_src
 
-  That's it.  Now you are ready to start using Haskell with AWS Lambda
-  to control all your AWS API automation needs.
+  The "executable" (the node.js files) will be in your .stack-work
+  directory.  The easy way to find them is to run:
+  #+begin_src sh
+    find . -type d -name lambdazonka.jsexe
+  #+end_src
+
+  That's it.  The `all.js` file is all you need with Node.js.  Now you
+  are ready to start using Haskell with AWS Lambda to control all your
+  AWS API automation needs.
