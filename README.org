@@ -1,0 +1,37 @@
+#+TITLE: Lambdazonka
+
+This is a project skeleton to use GHCJS on AWS Lambda.
+
+* Dependencies
+
+  - [[https://nodejs.org/en/blog/release/v0.10.36/][Node.js Stable 0.10.x]] - AWS Lambda is curently 0.10.36.  Don't get
+    aggressive for 4.x and 5.x from Nodesource.  It's not necessary.
+    
+  - [[http://haskellstack.org][Haskell Stack]] - Install the latest for your OS and then run `stack
+    setup` in your home directory.
+  
+* Build
+
+  In this project directory and with stack & node.js in your PATH run
+  the following:
+  #+begin_src sh
+    stack setup
+  #+end_src
+
+  GHC's hsc2hs binary is required in your PATH to build this project's
+  dependencies (any time you need to rebuild them).  The easiest way
+  to do this is to put one from your OS in there.  I had one in my
+  $HOME from running `stack setup` step above I installed stack.  Once
+  the dependencies have been built you no longer need the special PATH
+  to build the project.
+  #+begin_src sh
+    export PATH=$HOME/.stack/programs/x86_64-linux/ghc-7.10.3/bin
+  #+end_src
+
+  Now lets build the project in the base of the project directory
+  #+begin_src sh
+    stack build
+  #+end_src
+
+  That's it.  Now you are ready to start using Haskell with AWS Lambda
+  to control all your AWS API automation needs.
