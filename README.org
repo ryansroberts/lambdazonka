@@ -1,19 +1,23 @@
 #+TITLE: Lambdazonka
 
-This is a project skeleton to use GHCJS on AWS Lambda.
+This is a project skeleton to show that all of the Haskell [[https://github.com/brendanhay/amazonka][Amazonka
+AWS API libraries]] compile with [[https://github.com/ghcjs/ghcjs][GHCJS]] and could be deployed to [[https://aws.amazon.com/lambda/][AWS
+Lambda]].
 
 * Basic Dependencies
 
-  - [[https://nodejs.org/en/blog/release/v0.10.36/][Node.js Stable 0.10.x]] - AWS Lambda is currently 0.10.36.  Don't get
-    aggressive for 4.x and 5.x from Nodesource.  It's not necessary.
+  - [[https://nodejs.org/en/blog/release/v0.10.36/][Node.js Stable 0.10.x]] - AWS Lambda is [[http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html][currently 0.10.36]].  Don't
+    get aggressive with Node.js 4.x and 5.x from Nodesource.  It's not
+    necessary and you might run into trouble.
     
   - [[http://haskellstack.org][Haskell Stack]] - Install the latest for your OS and then run `stack
-    setup` in your home directory.
+    setup` in your $HOME. This will give you a default GHC
+    installation inside the $HOME/.stack directory.
   
 * Stack Setup (specific to GHCJS)
 
-  In the project directory (and with stack & node.js in your PATH) run
-  the following:
+  In this project directory (and with stack & node.js in your PATH)
+  run the following:
   #+begin_src sh
     stack setup
   #+end_src
@@ -37,6 +41,9 @@ This is a project skeleton to use GHCJS on AWS Lambda.
   #+begin_src sh
     stack build
   #+end_src
+  NOTE: Don't worry too much about the warnings show about GHCJS
+  packages vs Stack LTS approved versions. This is a known issue and
+  people are working on upgrading libraries in `ghcjs-boot`.
 
   The "executable" (the js files) will be in your .stack-work
   directory.  The easy way to find them is to run:
