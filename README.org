@@ -40,5 +40,5 @@ This is a project skeleton to use GHCJS on AWS Lambda.
   #+end_src
 
   That's it.  The `all.js` file is all you need with Node.js.  Now you
-  are ready to start using Haskell with AWS Lambda to control all your
-  AWS API automation needs.
+  are ready to start using Haskell with AWS Lambda for your AWS API
+  automation needs.
