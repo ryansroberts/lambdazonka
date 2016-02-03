@@ -10,8 +10,8 @@ Lambda]].
     get aggressive with Node.js 4.x and 5.x from Nodesource.  It's not
     necessary and you might run into trouble.
     
-  - [[http://haskellstack.org][Haskell Stack]] - Install the latest for your OS and then run `stack
-    setup` in your $HOME. This will give you a default GHC
+  - [[http://haskellstack.org][Haskell Stack]] - Install the latest for your OS and then run *stack
+    setup* in your $HOME. This will give you a default GHC
     installation inside the $HOME/.stack directory.
   
 * Stack Setup (specific to GHCJS)
@@ -26,12 +26,12 @@ Lambda]].
 
 * Building the GHCJS Project
 
-  The `hsc2hs` binary is required to be in your PATH in order to build
+  The *hsc2hs* binary is required to be in your PATH in order to build
   Amazonka on GHCJS (or any time you need to rebuild Amazonka).  The
   easiest way to do this is to put one from your OS in the PATH.  I
-  tried using an alias to `hsc2hs-ghcjs` (installed by stack as part
-  of GHCJS) but it didn't work. I had a native `hsc2hs` in my $HOME
-  from running the `stack setup` step above.  This works.  Once the
+  tried using an alias to *hsc2hs-ghcjs* (installed by stack as part
+  of GHCJS) but it didn't work. I had a native *hsc2hs* in my $HOME
+  from running the *stack setup* step above.  This works.  Once the
   dependencies have been built you no longer need the special PATH.
   #+begin_src sh
     export PATH=$HOME/.stack/programs/x86_64-linux/ghc-7.10.3/bin:$PATH
@@ -41,9 +41,14 @@ Lambda]].
   #+begin_src sh
     stack build
   #+end_src
-  NOTE: Don't worry too much about the warnings show about GHCJS
-  packages vs Stack LTS approved versions. This is a known issue and
-  people are working on upgrading libraries in `ghcjs-boot`.
+  NOTE: Don't worry too much about the *stack* warnings that are shown
+  about the version of GHCJS-compiled packages that are installed vs
+  the [[https://www.stackage.org/lts][Stackage LTS]] approved versions. This is a known issue to both
+  Stack & GHCJS folks. Hopefully, as people have time for the effort,
+  GHCJS will be 100% compatible with Stackage LTS.  In my personal 2
+  months on GHCJS with Stack, I haven't seen any bugs that have kept
+  my code from working. Be aware of these warnings though if something
+  comes up.
 
   The "executable" (the js files) will be in your .stack-work
   directory.  The easy way to find them is to run:
@@ -51,6 +56,6 @@ Lambda]].
     find . -type d -name lambdazonka.jsexe
   #+end_src
 
-  That's it.  The `all.js` file is self-contained and is all you need
+  That's it.  The *all.js* file is self-contained and is all you need
   with Node.js or for deployment to the cloud.  Now you are ready for
   AWS Lambda experiments!
