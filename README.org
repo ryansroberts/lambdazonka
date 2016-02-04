@@ -16,23 +16,23 @@ Lambda]].
   
 * Stack Setup (specific to GHCJS)
 
-  In this project directory (and with stack & node.js in your PATH)
+  In this project directory and with Stack & Node.js in your PATH
   run the following:
   #+begin_src sh
     stack setup
   #+end_src
 
-  This will bootstrap GHCJS into your $HOME/.stack dir.
+  This will bootstrap GHCJS into your $HOME/.stack directory.
 
 * Building the GHCJS Project
 
-  The *hsc2hs* binary is required to be in your PATH in order to build
-  Amazonka on GHCJS (or any time you need to rebuild Amazonka).  The
-  easiest way to do this is to put one from your OS in the PATH.  I
-  tried using an alias to *hsc2hs-ghcjs* (installed by stack as part
-  of GHCJS) but it didn't work. I had a native *hsc2hs* in my $HOME
-  from running the *stack setup* step above.  This works.  Once the
-  dependencies have been built you no longer need the special PATH.
+  The *hsc2hs* binary is required to be in your PATH in order to
+  build Amazonka on GHCJS (or any time you need to rebuild Amazonka).
+  /I tried using an alias for *hsc2hs-ghcjs*, installed by Stack as
+  part of GHCJS, but it didn't work./ You have a native hsc2hs in your
+  $HOME that was installed in the stack setup step above.  This works.
+  Once the dependencies have been built you no longer need the special
+  PATH.
   #+begin_src sh
     export PATH=$HOME/.stack/programs/x86_64-linux/ghc-7.10.3/bin:$PATH
   #+end_src
@@ -41,17 +41,18 @@ Lambda]].
   #+begin_src sh
     stack build
   #+end_src
-  NOTE: Don't worry too much about the *stack* warnings that are shown
+  *NOTE:* Don't worry too much about the Stack warnings that are shown
   about the version of GHCJS-compiled packages that are installed vs
   the [[https://www.stackage.org/lts][Stackage LTS]] approved versions. This is a known issue to both
   Stack & GHCJS folks. Hopefully, as people have time for the effort,
-  GHCJS will be 100% compatible with Stackage LTS.  In my personal 2
-  months on GHCJS with Stack, I haven't seen any bugs that have kept
-  my code from working. Be aware of these warnings though if something
-  comes up.
+  GHCJS will be 100% compatible with the Stackage LTS index.  In my
+  opinion, people survived for decades before Stackage was
+  available. In my 2 full-time months on GHCJS using Stack, I haven't
+  seen any bugs that have kept my code from working. Be aware of these
+  warnings though if something fishy comes up.
 
   The "executable" (the js files) will be in your .stack-work
-  directory.  The easy way to find them is to run:
+  directory in the project.  The easy way to find them is to run:
   #+begin_src sh
     find . -type d -name lambdazonka.jsexe
   #+end_src
